@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="es-ar">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Ejercicio donde se diseña un formulario de inscripción, utilizando HTML, CSS y JavaScript">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Formularios</title>
+	<style>
+		*
+		{
+			background-color: #1D1929;
+			box-sizing: border-box;
+			color: white;
+			font-family: arial;
+			text-align: center;
+		}
+		#boton
+		{
+			border: 3em solid transparent;
+		}
+		#boton-envio
+		{
+			background: grey;
+			border-radius: 10%;
+			padding: .25em;
+		}
+		 #tabla
+		 {
+		 	border: .25em solid grey;
+		 	margin: 3em auto 1em;
+		 	padding: 1em;	
+		 }
+
+		 .filas{
+		 	border: .5em solid transparent;
+		 }
+
+		 .fondo-form
+		 {
+		 	background: white;
+		 	color: black;
+		 	margin: .25em;
+		 }
+	</style>
+
+	<script>
+		function validarNombre(){
+			var nomb = document.getElementById("nombre").value;
+			var condicion = /^[A-Za-z\ñ\Ñ\´\`\'\-\ ]{3,40}$/;
+
+			if (condicion.test(nomb)){
+				document.getElementById("nombrePrompt").style.fontSize =  ".65em";
+				document.getElementById("nombrePrompt").innerHTML =  "Válido";
+				return(true);
+			}else{
+				document.getElementById("nombrePrompt").style.fontSize =  ".65em";
+				document.getElementById("nombrePrompt").innerHTML =  "Solo puede ingresar caracteres alfabéticos.";
+				return(false);
+			}
+		}
+
+		function validarApellido(){
+			var apellido = document.getElementById("apellidos").value;
+			var condicion1 = /^[A-Za-z\´\`\'\-\ ]{3,40}$/;
+
+			if (condicion1.test(apellido)){
+				document.getElementById("apellidoPrompt").style.fontSize =  ".65em";
+				document.getElementById("apellidoPrompt").innerHTML =  "Válido";
+				return(true);
+			}else{
+				document.getElementById("apellidoPrompt").style.fontSize =  ".65em";
+				document.getElementById("apellidoPrompt").innerHTML =  "Solo puede ingresar caracteres alfabéticos.";
+				return(false);
+			}
+		}
+		function validarEmail(){
+			var mail = document.getElementById("email").value;
+			var condicion2 = /^[A-Za-z\0-9]{3,80}/;
+			var condicion3 = /[@coursera.com]{13}/;
+
+			if (condicion2.test(mail) && condicion3.test(mail)){
+				document.getElementById("emailPrompt").style.fontSize = ".65em";
+				document.getElementById("emailPrompt").innerHTML = "Valido";
+				return(true);
+			}else{
+				document.getElementById("emailPrompt").style.fontSize = ".65em";
+				document.getElementById("emailPrompt").innerHTML = " Recuerde:<br> el nombre del e-mail debe tener mínimo, 3 caracteres alfanuméricos.<br> El dominio obligatorio a utilizar es '@coursera.com'.";
+				return(false);
+			}
+		}
+
+		function validarContrasenia(){
+			var pass = document.getElementById("contrasenia").value;
+			var condicion4 = /^[A-Za-z\0-9]{8,15}$/;
+
+			if(condicion4.test(pass)){
+				document.getElementById("contraseniaPrompt").style.fontSize = ".65em";				
+				document.getElementById("contraseniaPrompt").innerHTML = "Válido";
+				return(true);
+			} else{
+				document.getElementById("contraseniaPrompt").style.fontSize = ".65em";
+				document.getElementById("contraseniaPrompt").innerHTML = "Su contraseña debe tener al menos entre 8 a 15 caracteres alfabéticos (mayúsculas y minusculas) y/o numéricos.";
+				return(false);
+			}
+		}
+
+
+		function envioDatos(){
+			var nom = document.getElementById("nombre").value;
+			var apellido = document.getElementById("apellidos").value;
+			var usuario = nom + apellido;
+			var correoElec = document.getElementById("email").value;
+			var contra = document.getElementById("contrasenia").value;
+			var condi = /^[A-Za-z\´\`\'\-\ ]{3,40}$/;
+			var condi1 = /^[A-Za-z\´\`\'\-\ ]{3,40}$/;
+			var condi2 = /^[A-Za-z\0-9]{3,80}/;
+			var condi3 = /[@coursera.com]{13}/;	
+			var condi4 = /^[A-Za-z\0-9]{8,15}$/;
+
+	 		if (condi.test(nom) && condi1.test(apellido) && condi2.test(correoElec) && condi3.test(correoElec) && condi4.test(contra)){
+	 			document.getElementById("suscripcion").innerHTML ="<br><br><p>Inscripción realizada con éxito.</p>";
+	 			document.getElementById("suscripcion").innerHTML += "<p>Su usuario es " + usuario.toUpperCase() + "_COURSERA</p>";
+	 		}else{
+	 			document.getElementById("suscripcion").innerHTML += "<p>Rellene los campo correctamente.</p>"
+	 		}
+		}
+	</script>
+</head>	
+<body>
+	<h1>Formulario de inscripción</h1>
+	<table id="tabla" >
+		<tr>
+			<td class="filas">Nombre:<br></td>
+			<td><input  type="text" class="fondo-form" id="nombre" onblur="validarNombre();"></td>
+			<td><span id="nombrePrompt"></span></td>
+		</tr>
+		<tr>
+			<td class="filas">Apellido: </td>
+			<td><input type="text" class="fondo-form" id="apellidos" name="apellido_name" onblur="validarApellido();"></td>
+			<td><span id="apellidoPrompt"></span></td>
+		</tr><tr>
+			<td class="filas">Fecha de<br>nacimiento:</td>
+			<td><input type="date" class="fondo-form" name="fechaNac"></td>
+			<td><span id="nacimientoPrompt"></span></td>
+		</tr>
+		<tr>
+			<td class="filas">E-mail: </td>
+			<td><input type="text" class="fondo-form" id="email" name="correo" onblur="validarEmail();" placeholder="@coursera.com"></td>
+			<td><span id="emailPrompt"></span></td>
+		</tr>
+		<tr>
+			<td class="filas">Contraseña</td>
+			<td><input type="password" class="fondo-form" id="contrasenia" name="password" onblur="validarContrasenia();"></td>
+			<td id="contraseniaPrompt"></td>
+		</tr>
+		<tr>
+			<td class="filas">Género: </td>
+			<td>
+				<input type="radio" class="fondo-form" name="genero" value="Hombre" checked>Hombre 
+				<input type="radio" class="fondo-form" name="genero" value="Mujer">Mujer
+			</td>
+		</tr>
+		<tr >
+			<td id="boton" colspan="3">
+				<span id="boton-envio" onclick="envioDatos();">Enviar</span>
+				<span id="suscripcion"></span>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

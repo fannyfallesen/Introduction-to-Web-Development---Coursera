@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+        <title>Last Exercise</title>
+		<link rel="stylesheet" type="text/css" href="https://coursera-assessments.s3.amazonaws.com/assessments/1601863398065/1346eb7d-b867-4175-9d56-de0ef9b3133f/estilo.css">
+		<script type="text/javascript" src="https://coursera-assessments.s3.amazonaws.com/assessments/1601863408306/db7ba39c-a0cc-480b-bd1f-ecbcd0ad1c6e/validacion.js"></script>
+		
+</head> 
+		
+<body>
+<h1>What do you prefer?</h1>
+
+	<table id="tabla" >
+	<tr><td><h2>Please, Fill with your data</h2></td></tr> <!--Pedido de datos personales -->
+			<tr>
+			<td>First Name:<br></td>
+			<td><input  type="text" class="fondo-form" id="firstnm" onblur="validatefirstnm();"></td>
+			<td><span id="firstnmPrompt"></span></td>
+		</tr>
+		<tr>
+			<td>Last Name: </td>
+			<td><input type="text" class="fondo-form" id="lastnm" name="surname_name" onblur="validatesurname();"></td>
+			<td><span id="lastnmPrompt"></span></td>
+		</tr>
+		<tr>
+			<td>E-mail: </td>
+			<td><input type="text" class="fondo-form" id="email" name="correo" onblur="validateEmail();" placeholder="@coursera.com"></td>
+			<td><span id="emailPrompt"></span></td>
+		</tr>
+		<tr>  
+			<td>Birthday:</td>
+			<td><input type="date" class="fondo-form" name="fechaNac"></td>
+			<td><span id="nacimientoPrompt"></span></td>
+		</tr>
+	<tr> 
+	<tr>
+			<td>Gender: </td>
+			<td>
+				<input type="radio" class="fondo-form" name="genero" value="Man" >Male 
+				<input type="radio" class="fondo-form" name="genero" value="Woman">Female
+			</td>
+			</table>
+			<table id="tabla" >
+		</tr>
+		<tr><td><h2>What do you prefer for travel?</h2></td></tr><!--Aqui ya preguntamos cual cosa prefieren-->
+		<tr>
+			<td><img src="https://i.pinimg.com/originals/20/91/5a/20915a6b5495aa861101ed6acd59c6aa.jpg" alt="avion" class="avion"/><input type="radio" class="fondo-form" name="transporte" value="Avion" ></td>
+            <td><img src="https://cdn3.dibujos.net/dibujos/pintar/vagones-de-tren.png" alt="tren"/ class="tren"><input type="radio" class="fondo-form" name="transporte" value="Tren"></td>
+            <td><img src="https://www.dibujospara.com/wp-content/uploads/2011/07/dibujo-de-colectivo-estacionado.gif" alt="colectivo" class="colectivo"/><input type="radio" class="fondo-form" name="transporte" value="Colectivo"></td>
+    </tr>
+	</table>
+	<table id="tabla" >
+	<tr>
+			<td>Where is your prefer place on the world?<br></td>
+			<td><input  type="text" class="fondo-form" id="placeworld" onblur="validateplaceworld();"></td>
+			<td><span id="placeworldPrompt"></span></td>
+		</tr>
+	<tr>
+	<td>
+	What color you prefer?: 
+<input type="color" name="fvcolor">
+</td>
+</tr>
+<tr><td>What month of the year do you prefer?</td>
+<td>
+<select name="Meses">
+<option value="Enero">January</option>
+<option value="Febrero">February</option>
+<option value="Marzo">March</option>
+<option value="Abril">April</option>
+<option value="Mayo">May</option>
+<option value="Junio">June</option>
+<option value="Julio">July</option>
+<option value="Agosto">August</option>
+<option value="Septiembre">September</option>
+<option value="Octubre">October</option>
+<option value="Noviembre">November</option>
+<option value="Diciembre">December</option>
+</select>
+</td>
+</tr>
+<tr><td>What pet do you prefer? </td></tr>
+<tr>
+<td>
+<input type="checkbox" name="skills" value="Gato">Cat<br>
+<input type="checkbox" name="skills" value="Perro">Dog<br>
+<input type="checkbox" name="skills" value="Conejo">Rabbit<br>
+<input type="checkbox" name="skills" value="Loro">Parrot<br>
+       </td>
+	   </tr>
+		<tr >
+			<td id="boton" colspan="3">
+				<span id="boton-envio" onclick="sendData();">Send</span>
+				<span id="enviar"></span>
+			</td>
+		</tr>
+	</table>
+
+</body>
+</html>

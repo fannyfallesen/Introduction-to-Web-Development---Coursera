@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="es-ar">
+<head>
+	<meta charset="UTF-8">
+	
+	<title>Form Exercise</title>
+	<style>
+	h1{
+	text-align: center;
+	}
+	
+		body{
+		background-color: lightblue;
+		}
+		
+		#tabla	 {
+		 	border: .25em solid pink;
+		 	margin: 3em auto 1em;
+		 	padding: 1em;	
+		 }
+		 
+		 	#boton-envio
+		{
+			background: grey;
+			border-radius: 10%;
+			padding: .25em;
+		}
+		
+			#boton
+		{
+			border: 3em solid transparent;
+		}
+		
+		.fondo-form
+		 {
+		 	background: white;
+		 	color: black;
+		 	margin: .25em;
+		 }
+	</style>
+
+	<script>
+		function validatefirstnm(){
+			var nomb = document.getElementById("firstnm").value;
+			var condicion = /^[A-Za-z\ñ\Ñ\´\`\'\-\ ]{3,40}$/;
+
+			if (condicion.test(nomb)){
+				document.getElementById("firstnmPrompt").style.fontSize =  ".65em";
+				document.getElementById("firstnmPrompt").innerHTML =  "Valid";
+				return(true);
+			}else{
+				document.getElementById("firstnmPrompt").style.fontSize =  ".65em";
+				document.getElementById("firstnmPrompt").innerHTML =  "You can only enter alphabetic characters..";
+				return(false);
+			}
+		}
+
+		function validatesurname(){
+			var surname = document.getElementById("lastnm").value;
+			var condicion1 = /^[A-Za-z\´\`\'\-\ ]{3,40}$/;
+
+			if (condicion1.test(surname)){
+				document.getElementById("lastnmPrompt").style.fontSize =  ".65em";
+				document.getElementById("lastnmPrompt").innerHTML =  "Valid";
+				return(true);
+			}else{
+				document.getElementById("lastnmPrompt").style.fontSize =  ".65em";
+				document.getElementById("lastnmPrompt").innerHTML =  "You can only enter alphabetic characters..";
+				return(false);
+			}
+		}
+		function validateEmail(){
+			var mail = document.getElementById("email").value;
+			var condicion2 = /^[A-Za-z\0-9]{3,80}/;
+			var condicion3 = /[@coursera.com]{13}/;
+
+			if (condicion2.test(mail) && condicion3.test(mail)){
+				document.getElementById("emailPrompt").style.fontSize = ".65em";
+				document.getElementById("emailPrompt").innerHTML = "Valid";
+				return(true);
+			}else{
+				document.getElementById("emailPrompt").style.fontSize = ".65em";
+				document.getElementById("emailPrompt").innerHTML = "Remember:<br> the name of the e-mail must have minimum, 3 alphanumeric characters.<br> The mandatory domain to use is'@coursera.com'.";
+				return(false);
+			}
+		}
+
+		function validatePassword(){
+			var pass = document.getElementById("contrasenia").value;
+			var condicion4 = /^[A-Za-z\0-9]{8,15}$/;
+
+			if(condicion4.test(pass)){
+				document.getElementById("contraseniaPrompt").style.fontSize = ".65em";				
+				document.getElementById("contraseniaPrompt").innerHTML = "Valid";
+				return(true);
+			} else{
+				document.getElementById("contraseniaPrompt").style.fontSize = ".65em";
+				document.getElementById("contraseniaPrompt").innerHTML = "Your password must be at least 8-15 alphabetic characters (upper and lower case) and / or numeric.";
+				return(false);
+			}
+		}
+
+
+		function sendData(){
+			var nom = document.getElementById("firstnm").value;
+			var surname = document.getElementById("lastnm").value;
+			var usuario = nom + surname;
+			var correoElec = document.getElementById("email").value;
+			var contra = document.getElementById("contrasenia").value;
+			var condi = /^[A-Za-z\´\`\'\-\ ]{3,40}$/;
+			var condi1 = /^[A-Za-z\´\`\'\-\ ]{3,40}$/;
+			var condi2 = /^[A-Za-z\0-9]{3,80}/;
+			var condi3 = /[@coursera.com]{13}/;	
+			var condi4 = /^[A-Za-z\0-9]{8,15}$/;
+
+	 		if (condi.test(nom) && condi1.test(surname) && condi2.test(correoElec) && condi3.test(correoElec) && condi4.test(contra)){
+	 			document.getElementById("registration").innerHTML ="<br><br><p>Successful registration!</p>";
+	 			document.getElementById("registration").innerHTML += "<p>Your user is " + user.toUpperCase() + "_COURSERA</p>";
+	 		}else{
+	 			document.getElementById("registration").innerHTML += "<p>Please, fill in the fields correctly.</p>"
+	 		}
+		}
+	</script>
+</head>	
+<body>
+	<h1>Registration form.</h1>
+	<table id="tabla" >
+		<tr>
+			<td>First Name:<br></td>
+			<td><input  type="text" class="fondo-form" id="firstnm" onblur="validatefirstnm();"></td>
+			<td><span id="firstnmPrompt"></span></td>
+		</tr>
+		<tr>
+			<td>Last Name: </td>
+			<td><input type="text" class="fondo-form" id="lastnm" name="surname_name" onblur="validatesurname();"></td>
+			<td><span id="lastnmPrompt"></span></td>
+		</tr><tr>
+			<td>Birthday:</td>
+			<td><input type="date" class="fondo-form" name="fechaNac"></td>
+			<td><span id="nacimientoPrompt"></span></td>
+		</tr>
+		<tr>
+			<td>E-mail: </td>
+			<td><input type="text" class="fondo-form" id="email" name="correo" onblur="validateEmail();" placeholder="@coursera.com"></td>
+			<td><span id="emailPrompt"></span></td>
+		</tr>
+		<tr>
+			<td>Password: </td>
+			<td><input type="password" class="fondo-form" id="contrasenia" name="password" onblur="validatePassword();"></td>
+			<td id="contraseniaPrompt"></td>
+		</tr>
+		<tr>
+			<td>Sex: </td>
+			<td>
+				<input type="radio" class="fondo-form" name="genero" value="Man" checked>Male 
+				<input type="radio" class="fondo-form" name="genero" value="Woman">Female
+			</td>
+		</tr>
+		<tr >
+			<td id="boton" colspan="3">
+				<span id="boton-envio" onclick="sendData();">Send</span>
+				<span id="registration"></span>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,44 @@
+.tabla tr td{
+border: 2px solid;
+  text-align: center;
+   
+}
+
+.tabla {
+	
+	border: 1px solid;
+}
+body{
+	
+	background-color: pink;
+}
+
+
+#titulo{
+	text-align:center;
+	background-color: white;
+	color:red;
+	-webkit-text-stroke: 1px grey;
+	position: relative;
+	width: 98%;
+	padding: 15px;
+}
+
+.gato{
+	width:8%;
+margin:3px;
+}
+
+.perro{
+	width:8%;
+}
+
+.conejo{
+	width:11%;
+}
+
+p {
+color:white;
+font-size: 30px;
+text-align:center;
+}

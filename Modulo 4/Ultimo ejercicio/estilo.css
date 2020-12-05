@@ -1,0 +1,61 @@
+*/*Aplica para toda la pagina*/
+		{
+			background-color: #8F3AAC;
+			box-sizing: border-box;
+			color: white;
+			font-family: arial;
+			text-align: center;
+			
+		}
+ .filas{
+		 	border: .5em solid transparent;
+		 }
+
+		 .fondo-form
+		 {
+		 	background: white;
+		 	color: black;
+		 	margin: .25em;
+		 }
+		 .travel{
+	text-align: center;
+	}
+ h2{
+	
+	-webkit-text-stroke: 1px grey;
+	}
+	h1{
+		text-align: center;
+		-webkit-text-stroke: 1px black;}
+
+.colectivo {
+	width: 20%;
+	
+}
+
+.tren {
+	width: 25%;
+	
+}
+
+.avion {
+	width: 15%;
+	
+}
+
+#tabla	 {/*aplica para la tabla que contiene el formulario*/
+		 	border: .25em solid black;
+		 	margin: 3em auto 1em;
+		 	padding: 1em;	
+		 }
+		 	 	#boton-envio
+		{
+			background: grey;
+			border-radius: 10%;
+			padding: .25em;
+		}
+		
+			#boton
+		{
+			border: 3em solid transparent;
+		}
